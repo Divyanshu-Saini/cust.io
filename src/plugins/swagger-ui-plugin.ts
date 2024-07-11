@@ -1,12 +1,13 @@
+import { FastifyInstance } from 'fastify';
 import fp from 'fastify-plugin';
 import swaggerUi, { FastifySwaggerUiOptions } from '@fastify/swagger-ui';
 
 /**
- * This plugins adds some utilities to handle http errors
+ * This plugins provide UI to server API documentations.
  *
  * @see https://github.com/fastify/fastify-swagger-ui
  */
-export default fp<FastifySwaggerUiOptions>(async (fastify) => {
+export default fp<FastifySwaggerUiOptions>(async (fastify: FastifyInstance) => {
   const swaggerUiOptions: FastifySwaggerUiOptions = {
     routePrefix: '/documentation',
     uiConfig: {

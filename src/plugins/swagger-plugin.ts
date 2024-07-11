@@ -1,12 +1,13 @@
+import { FastifyInstance } from 'fastify';
 import fp from 'fastify-plugin';
 import swagger, { SwaggerOptions } from '@fastify/swagger';
 
 /**
- * This plugins adds some utilities to handle http errors
+ * This plugins generate OpenApi spec
  *
  * @see https://github.com/fastify/fastify-swagger
  */
-export default fp<SwaggerOptions>(async (fastify) => {
+export default fp<SwaggerOptions>(async (fastify: FastifyInstance) => {
   const swaggerOptions: SwaggerOptions = {
     openapi: {
       openapi: '3.0.0',
