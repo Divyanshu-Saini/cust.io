@@ -14,6 +14,10 @@ export default fp<MSSQLPluginOptions>(async (fastify: FastifyInstance) => {
     password: fastify.config.MSSQL_PWD,
     database: fastify.config.MSSQL_DB,
     port: +(fastify.config.MSSQL_PORT || 1433),
+    pool: {
+      max: +fastify.config.MAX_POOL_SIZE,
+      min: +fastify.config.MIN_POOL_SIZE,
+    },
     options: {
       encrypt: false,
       trustServerCertificate: true,

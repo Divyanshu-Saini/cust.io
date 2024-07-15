@@ -107,5 +107,5 @@
     // "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
-  "exclude": ["node_modules", "**/*.spec.ts", ".eslintrc.js"]
+  "exclude": ["node_modules", "**/*.spec.ts", ".eslintrc.js","jest.config.js"]
 }

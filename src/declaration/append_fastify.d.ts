@@ -8,6 +8,8 @@ declare module 'fastify' {
       MSSQL_PWD: string;
       MSSQL_DB: string;
       MSSQL_PORT: string;
+      MAX_POOL_SIZE: string;
+      MIN_POOL_SIZE: string;
     };
   }
 }

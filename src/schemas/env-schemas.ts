@@ -1,6 +1,6 @@
 const schema = {
   type: 'object',
-  required: ['MSSQL_SERVER', 'MSSQL_USER', 'MSSQL_PWD', 'MSSQL_DB', 'MSSQL_PORT'],
+  required: ['MSSQL_SERVER', 'MSSQL_USER', 'MSSQL_PWD', 'MSSQL_DB', 'MSSQL_PORT', 'MAX_POOL_SIZE', 'MIN_POOL_SIZE'],
   properties: {
     PORT: {
       type: 'string',
@@ -18,6 +18,12 @@ const schema = {
       type: 'string',
     },
     MSSQL_PORT: {
+      type: 'string',
+    },
+    MAX_POOL_SIZE: {
+      type: 'string',
+    },
+    MIN_POOL_SIZE: {
       type: 'string',
     },
   },
