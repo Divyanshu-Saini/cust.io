@@ -23,11 +23,6 @@ const ping: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       },
     },
     async function (request: FastifyRequest, reply: FastifyReply) {
-      // console.log('Ping Request', request.hostname);
-      // console.log('Opts ', opts);
-      // await fastify.mssql.pool.connect();
-      // const res = await fastify.mssql.pool.query('select COUNT(*) as rec from dbo.INSTRUMENTS');
-      // console.log('res : ', JSON.stringify(res));
       reply.status(200).send({
         timestamp: new Date().toUTCString(),
         hostname: request.hostname,

@@ -11,7 +11,7 @@ export default fp<FastifySwaggerUiOptions>(async (fastify: FastifyInstance) => {
   const swaggerUiOptions: FastifySwaggerUiOptions = {
     routePrefix: '/documentation',
     uiConfig: {
-      docExpansion: 'full',
+      docExpansion: 'list',
       deepLinking: false,
     },
     staticCSP: true,

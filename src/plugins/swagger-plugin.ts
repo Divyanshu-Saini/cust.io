@@ -22,7 +22,10 @@ export default fp<SwaggerOptions>(async (fastify: FastifyInstance) => {
           description: 'Development server for new age fundoo',
         },
       ],
-      tags: [{ name: 'ping', description: 'Server health check' }],
+      tags: [
+        { name: 'ping', description: 'Server health check' },
+        { name: 'market-data', description: 'Market data endpoint' },
+      ],
       components: {
         securitySchemes: {
           apiKey: {
