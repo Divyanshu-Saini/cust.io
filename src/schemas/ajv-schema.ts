@@ -1,5 +1,7 @@
-{
-    "type": "object",
+import schema from "./env-schemas"
+
+export const ajv_schema = {
+    "type": "array",
     "properties": {
         "Scheme_Id": {"type": "number"},
         "Scheme_Name": {"type": "string"},
@@ -55,4 +57,4 @@
         "AUM": {"type": "number"}
     }
 }
-    
+

@@ -1,5 +1,5 @@
-{
-    "type": "object",
+export const security_master = {
+    "type": "array",
     "properties": {
         "CompanyCode": {"type": "number"},
         "SecurityTypeCode": {"type": "number"},
