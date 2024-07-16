@@ -88,3 +88,32 @@ export interface SchemaMaster extends PageInfo {
   Exit_Remarks: string;
   AUM: number;
 }
+
+export interface SecurityMaster extends PageInfo {
+  CompanyCode: number;
+  SecurityTypeCode: number;
+  SecuritySubTypeCode: number;
+  SerialNumber: number;
+  SecurityCode: string;
+  TickerName: string;
+  IssuePrice: number;
+  Description: string;
+  DateOfIssue: string;
+  DateOfExpiry: null | string;
+  FaceValue: number;
+  MarketLot: number;
+  ISINCode: string;
+  Remarks: string;
+  CreatedOn: string;
+  CreatedBy: string;
+  LastModifiedOn: string;
+  LastModifiedBy: string;
+  ReasonForModification: string;
+  DeleteFlag: boolean;
+  Code: string;
+  IsItActiveSecurity: boolean;
+  BroadIndustryCode: number;
+  BroadIndustryName: string;
+  ShortCompanyName: string;
+  nsecode: null | string;
+}
