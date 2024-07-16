@@ -36,33 +36,33 @@ export type SchemeNavResponse = {
 
 ///////////////////////////////////////
 
-// export interface SchemeRapm extends PageInfo {
-//    PRICEDATE: string,
-//    SECURITYCODE: string,
-//    ISINCODE: string,
-//    NSECLOSEPRICE: number,
-//    BSECLOSEPRICE: number,
-//    Description: string,
-// }
+export interface SecurityPrices extends PageInfo {
+  PRICEDATE: string;
+  SECURITYCODE: string;
+  ISINCODE: string;
+  NSECLOSEPRICE: number;
+  BSECLOSEPRICE: number;
+  Description: string;
+}
 
-// export interface PageInfo {
-//   TOTAL_ROWS: number;
-//   CURRENT_PAGE_ROWS: number;
-//   START_PAGE_ROW: number;
-//   END_PAGE_ROW: number;
-//   TOTAL_PAGES: number;
-//   PREVIOUS_PAGE: number | null;
-//   CURRENT_PAGE: number;
-//   NEXT_PAGE: number;
-// }
+export interface PageInfo {
+  TOTAL_ROWS: number;
+  CURRENT_PAGE_ROWS: number;
+  START_PAGE_ROW: number;
+  END_PAGE_ROW: number;
+  TOTAL_PAGES: number;
+  PREVIOUS_PAGE: number | null;
+  CURRENT_PAGE: number;
+  NEXT_PAGE: number;
+}
 
-// export type SchemeRapmResponse = {
-//   result: SchemeRapm[];
-//   previous: number | null;
-//   current: number;
-//   next: {
-//     page: number | null;
-//     limit: number;
-//     link: string | null;
-//   };
-// };
+export type SecurityPricesResponse = {
+  result: SecurityPrices[];
+  previous: number | null;
+  current: number;
+  next: {
+    page: number | null;
+    limit: number;
+    link: string | null;
+  };
+};
