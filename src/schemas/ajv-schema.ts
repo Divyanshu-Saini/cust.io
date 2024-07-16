@@ -1,4 +1,4 @@
-export const ajv_schema = {
+export const scheme_master_schema = {
     "type": "array",
     "items": {
     "type": "object",
@@ -59,7 +59,7 @@ export const ajv_schema = {
     }
 };
 
-export const security_master = {
+export const security_master_schema = {
     "type": "array",
     "items": {
     "type": "object",
