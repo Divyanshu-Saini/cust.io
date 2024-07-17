@@ -7,9 +7,12 @@
     "start": "node dist/server.js",
     "dev": "ts-node src/server.ts",
     "lint": "eslint 'src/**/*.{js,ts}'",
+    "lint:fix": "eslint --fix 'src/**/*.{js,ts}'",
     "format": "prettier --write 'src/**/*.{js,ts}'",
-    "prepare": "husky",
-    "test": "jest"
+    "prepare": "husky install",
+    "test": "jest",
+    "prestart": "npm run build",
+    "precommit": "lint-staged"
   },
   "author": "Divyanshu Saini",
   "license": "ISC",
@@ -45,8 +48,8 @@
   },
   "lint-staged": {
     "*.{ts,js}": [
-      "prettier --write 'src/**/*.{js,ts}'",
-      "eslint 'src/**/*.{js,ts}'"
+      "prettier --write",
+      "eslint --fix"
     ]
   }
 }
