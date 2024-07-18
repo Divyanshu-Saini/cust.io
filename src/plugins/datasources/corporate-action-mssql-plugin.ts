@@ -9,10 +9,11 @@ import fastifyMssql, { MSSQLPluginOptions } from 'fastify-mssql';
  */
 export default fp<MSSQLPluginOptions>(async (fastify: FastifyInstance) => {
   fastify.register(fastifyMssql, {
+    decorate: 'vfCc',
     server: String(fastify.config.MSSQL_SERVER),
     user: fastify.config.MSSQL_USER,
     password: fastify.config.MSSQL_PWD,
-    database: fastify.config.MSSQL_DB,
+    database: fastify.config.DB_VF_CC,
     port: +(fastify.config.MSSQL_PORT || 1433),
     pool: {
       max: +fastify.config.MAX_POOL_SIZE,
@@ -23,4 +24,6 @@ export default fp<MSSQLPluginOptions>(async (fastify: FastifyInstance) => {
       trustServerCertificate: true,
     },
   });
+
+  //   fastify.decorate('vfCc', fastify.mssql);
 });
