@@ -1,3 +1,14 @@
+export interface PageInfo {
+  TOTAL_ROWS: number;
+  CURRENT_PAGE_ROWS: number;
+  START_PAGE_ROW: number;
+  END_PAGE_ROW: number;
+  TOTAL_PAGES: number;
+  PREVIOUS_PAGE: number | null;
+  CURRENT_PAGE: number;
+  NEXT_PAGE: number;
+}
+
 export interface SchemeNav extends PageInfo {
   SCHEME_ID: string;
   NAV_DATE: string;
@@ -11,28 +22,6 @@ export interface SchemeNav extends PageInfo {
   BONUS2: string | null;
   MODIFIED_DATE: string;
 }
-
-export interface PageInfo {
-  TOTAL_ROWS: number;
-  CURRENT_PAGE_ROWS: number;
-  START_PAGE_ROW: number;
-  END_PAGE_ROW: number;
-  TOTAL_PAGES: number;
-  PREVIOUS_PAGE: number | null;
-  CURRENT_PAGE: number;
-  NEXT_PAGE: number;
-}
-
-export type SchemeNavResponse = {
-  result: SchemeNav[];
-  previous: number | null;
-  current: number;
-  next: {
-    page: number | null;
-    limit: number;
-    link: string | null;
-  };
-};
 
 export interface SchemaMaster extends PageInfo {
   Scheme_Id: number;
@@ -118,9 +107,7 @@ export interface SecurityMaster extends PageInfo {
   nsecode: null | string;
 }
 
-///////////////////////////////////////
-
-export interface SchemeRmap extends PageInfo {
+export interface SchemeRapm extends PageInfo {
   RTA_CODE: string;
   Scheme_ID: number;
   From_Date: string;
@@ -168,16 +155,16 @@ export interface SchemeRmap extends PageInfo {
   CAT_RET_1D: number;
 }
 
-export type SchemeRmapResponse = {
-  result: SchemeRmap[];
-  previous: number | null;
-  current: number;
-  next: {
-    page: number | null;
-    limit: number;
-    link: string | null;
-  };
-};
+// export type SchemeRmapResponse = {
+//   result: SchemeRmap[];
+//   previous: number | null;
+//   current: number;
+//   next: {
+//     page: number | null;
+//     limit: number;
+//     link: string | null;
+//   };
+// };
 
 export interface SecurityPrices extends PageInfo {
   PRICEDATE: string;
@@ -188,16 +175,16 @@ export interface SecurityPrices extends PageInfo {
   Description: string;
 }
 
-export type SecurityPricesResponse = {
-  result: SecurityPrices[];
-  previous: number | null;
-  current: number;
-  next: {
-    page: number | null;
-    limit: number;
-    link: string | null;
-  };
-};
+// export type SecurityPricesResponse = {
+//   result: SecurityPrices[];
+//   previous: number | null;
+//   current: number;
+//   next: {
+//     page: number | null;
+//     limit: number;
+//     link: string | null;
+//   };
+// };
 export interface CorporateAction extends PageInfo {
   RowId: number;
   CAType: string;
@@ -232,13 +219,24 @@ export interface CorporateAction extends PageInfo {
   LastModified: string;
 }
 
-export type CorporateActionResponse = {
-  result: CorporateAction[];
-  previous: number | null;
-  current: number;
-  next: {
+// export type CorporateActionResponse = {
+//   result: CorporateAction[];
+//   previous: number | null;
+//   current: number;
+//   next: {
+//     page: number | null;
+//     limit: number;
+//     link: string | null;
+//   };
+// };
+
+export type SchemeNavResponse = {
+  result: SchemeNav[] | CorporateAction[] | SecurityPrices[] | SchemeRapm[] | SchemaMaster[] | SecurityMaster[];
+  previous?: number | null;
+  current?: number | null;
+  next?: {
     page: number | null;
-    limit: number;
+    limit: number | null;
     link: string | null;
   };
 };

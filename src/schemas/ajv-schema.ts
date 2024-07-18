@@ -1,3 +1,13 @@
+export const market_data_query_string = {
+  type: 'object',
+  properties: {
+    timeStamp: { type: 'string', format: 'date-time' },
+    limit: { type: 'number' },
+    pageNumber: { type: 'number' },
+  },
+  required: ['timeStamp', 'limit', 'pageNumber'],
+};
+
 export const scheme_master_schema = {
   type: 'array',
   items: {
@@ -93,7 +103,7 @@ export const security_master_schema = {
     },
   },
 };
-export const scheme_rmap_schema = {
+export const scheme_rapm_schema = {
   type: 'array',
   items: {
     type: 'object',
