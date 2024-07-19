@@ -138,6 +138,26 @@ export class MarketDataController {
 
     reply.status(200).send(schemeNavResponse);
   };
+
+  getHoldings = async (request: FastifyRequest, reply: FastifyReply): Promise<void> => {
+    const { timeStamp, pageNumber, limit } = request.query as { timeStamp: Date; pageNumber: number; limit: number };
+    const data: IResult<SchemeNav> = await this.marketDataService.getHoldingsWf(timeStamp, pageNumber, limit);
+    const schemeNavResponse: MasterDataResponse = {
+      result: data.recordset,
+      previous: data.recordsets[1][0].PREVIOUS_PAGE,
+      current: data.recordsets[1][0].CURRENT_PAGE,
+      totalPages: data.recordsets[1][0].TOTAL_PAGES,
+      next: {
+        page: data.recordsets[1][0].NEXT_PAGE,
+        limit: limit,
+        link: data.recordsets[1][0].NEXT_PAGE
+          ? `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`
+          : null,
+      },
+    };
+
+    reply.status(200).send(schemeNavResponse);
+  };
 }
 
 const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): Promise<void> => {
@@ -336,6 +356,37 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
       },
     },
     marketDataController.getCorporateAction,
+  );
+
+  fastify.get(
+    '/market-data/holdings',
+    {
+      schema: {
+        description: 'This Endpoint is used to fetch the holdings details',
+        tags: ['market-data'],
+        summary: 'Fetch holdings',
+        querystring: market_data_query_string,
+        response: {
+          200: {
+            type: 'object',
+            properties: {
+              result: scheme_master_schema, //to be replaced with holdings schema
+              current: { type: 'number' },
+              previous: { type: 'number', nullable: true },
+              next: {
+                type: 'object',
+                properties: {
+                  page: { type: 'number' },
+                  limit: { type: 'number' },
+                  link: { type: 'string' },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    marketDataController.getHoldings,
   );
 };
 
