@@ -227,3 +227,32 @@ export const corporate_action_schema = {
     },
   },
 };
+
+export const holdings_wf = {
+  type: 'array',
+  items: {
+    type: 'object',
+    properties: {
+      SCHEME_ID: { type: 'number' },
+      RTA_CODE: { type: 'string' },
+      HOLDING_DATE: { type: 'string', format: 'date-time' },
+      SECURITY_ISIN: { type: 'string' },
+      RATING: { type: 'string' },
+      ASSET_TYPE: { type: 'string' },
+      INSTRUMENT_NAME: { type: 'string' },
+      ASSET: { type: 'string' },
+      ASSET_CLASSIFICATION: { type: 'string' },
+      HOLDINGSINPERC: { type: 'string' },
+      CORPOUS: { type: 'number' },
+      GICS_SECTOR: { type: 'string' },
+      MODIFIED_DATE: { type: 'string', format: 'date-time' },
+      MTM_VALUE: { type: 'number' },
+      INDUSTRY: { type: 'string' },
+      RATING_CLASS_VF: { type: 'string' },
+      Rating_Classification: { type: 'string' },
+      maturity_date: { type: 'string', format: 'date-time' },
+      Asset_Type_Wealthfy: { type: 'string' },
+      SECURITIES: { type: 'string' },
+    },
+  },
+};
