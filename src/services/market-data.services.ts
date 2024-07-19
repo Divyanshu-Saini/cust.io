@@ -106,20 +106,4 @@ export class MarketDataService {
       throw error;
     }
   }
-
-  async getHoldingsWf(timesStamp: Date, pageNumber: number, limit: number): Promise<IResult<SchemeNav>> {
-    try {
-      console.log(timesStamp, pageNumber, limit);
-      await this.fastify.fundoo.pool.connect();
-      const result: IResult<SchemeNav> = await this.fastify.fundoo.pool.query(`EXEC dbo.API_GET_Holdings_WF
-              @NAV_DATE = '${timesStamp}', 
-              @page_no = ${pageNumber},                
-              @page_size = ${limit}
-          `);
-      return result;
-    } catch (error) {
-      this.fastify.log.error(error, 'getHoldings');
-      throw error;
-    }
-  }
 }
