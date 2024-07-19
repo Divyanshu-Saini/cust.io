@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { CorporateAction, SchemaMaster, SchemeNav, SchemeRapm, SecurityMaster, SecurityPrices } from '../schemas';
+import { CorporateAction, SchemaMaster, SchemeNav, SchemeRapm, SecurityMaster, SecurityPrices, HoldingsWF } from '../schemas';
 import { IResult } from 'mssql';
 // import { MSSQLFastifyInterface } from 'fastify-mssql';
 
@@ -37,7 +37,7 @@ export class MarketDataService {
           `);
       return result;
     } catch (error) {
-      this.fastify.log.error(error, 'getSchemeNav');
+      this.fastify.log.error(error, 'getSchemeMaster');
       throw error;
     }
   }
@@ -53,7 +53,7 @@ export class MarketDataService {
           `);
       return result;
     } catch (error) {
-      this.fastify.log.error(error, 'getSchemeNav');
+      this.fastify.log.error(error, 'getSecurityPrices');
       throw error;
     }
   }
@@ -69,7 +69,7 @@ export class MarketDataService {
           `);
       return result;
     } catch (error) {
-      this.fastify.log.error(error, 'getSchemeNav');
+      this.fastify.log.error(error, 'getSecurityMaster');
       throw error;
     }
   }
@@ -85,7 +85,7 @@ export class MarketDataService {
           `);
       return result;
     } catch (error) {
-      this.fastify.log.error(error, 'getSchemeNav');
+      this.fastify.log.error(error, 'getSchemeRapm');
       throw error;
     }
   }
@@ -102,8 +102,25 @@ export class MarketDataService {
       console.log('res-- ', result);
       return result;
     } catch (error) {
-      this.fastify.log.error(error, 'getSchemeNav');
+      this.fastify.log.error(error, 'getCorporateAction');
       throw error;
     }
   }
+
+  async getHoldingsWF(timesStamp: Date, pageNumber: number, limit: number): Promise<IResult<SchemeNav>> {
+    try {
+      console.log(timesStamp, pageNumber, limit);
+      await this.fastify.fundoo.pool.connect();
+      const result: IResult<HoldingsWF> = await this.fastify.fundoo.pool.query(`EXEC dbo.API_GET_Holdings_WF
+              @NAV_DATE = '${timesStamp}', 
+              @page_no = ${pageNumber},                
+              @page_size = ${limit}
+          `);
+      return result;
+    } catch (error) {
+      this.fastify.log.error(error, 'getHoldingsWF');
+      throw error;
+    }
+  }
+
 }

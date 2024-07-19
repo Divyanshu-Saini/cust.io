@@ -78,6 +78,30 @@ export interface SchemaMaster extends PageInfo {
   AUM: number;
 }
 
+export interface HoldingsWF extends PageInfo {
+  SCHEME_ID: number;
+  RTA_CODE: string;
+  HOLDING_DATE: string;
+  SECURITY_ISIN: string;
+  RATING: string;
+  ASSET_TYPE: string;
+  INSTRUMENT_NAME: string;
+  ASSET: string;
+  ASSET_CLASSIFICATION: string;
+  HOLDINGSINPERC: string;
+  CORPOUS: number;
+  GICS_SECTOR: string;
+  MODIFIED_DATE: string;
+  MTM_VALUE: number;
+  INDUSTRY: string;
+  RATING_CLASS_VF: string;
+  Rating_Classification: string;
+  maturity_date: string;
+  Asset_Type_Wealthfy: string;
+  SECURITIES: string;
+}
+
+
 export interface SecurityMaster extends PageInfo {
   CompanyCode: number;
   SecurityTypeCode: number;
