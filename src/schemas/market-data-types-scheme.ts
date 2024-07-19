@@ -234,6 +234,7 @@ export type SchemeNavResponse = {
   result: SchemeNav[] | CorporateAction[] | SecurityPrices[] | SchemeRapm[] | SchemaMaster[] | SecurityMaster[];
   previous?: number | null;
   current?: number | null;
+  totalPages?: number | null;
   next?: {
     page: number | null;
     limit: number | null;
