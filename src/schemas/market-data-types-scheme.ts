@@ -230,7 +230,7 @@ export interface CorporateAction extends PageInfo {
 //   };
 // };
 
-export type SchemeNavResponse = {
+export type MasterDataResponse = {
   result: SchemeNav[] | CorporateAction[] | SecurityPrices[] | SchemeRapm[] | SchemaMaster[] | SecurityMaster[];
   previous?: number | null;
   current?: number | null;

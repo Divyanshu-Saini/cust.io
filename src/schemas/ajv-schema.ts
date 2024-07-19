@@ -8,6 +8,21 @@ export const market_data_query_string = {
   required: ['timeStamp', 'limit', 'pageNumber'],
 };
 
+export const page_details_schema = {
+  current: { type: 'number', nullable: true },
+  previous: { type: 'number', nullable: true },
+  totalPages: { type: 'number', nullable: true },
+  next: {
+    type: 'object',
+    nullable: true,
+    properties: {
+      page: { type: 'number' },
+      limit: { type: 'number' },
+      link: { type: 'string', nullable: true },
+    },
+  },
+};
+
 export const scheme_master_schema = {
   type: 'array',
   items: {

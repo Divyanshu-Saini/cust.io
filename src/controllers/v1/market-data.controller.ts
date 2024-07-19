@@ -9,12 +9,13 @@ import {
   scheme_master_schema,
   scheme_rapm_schema,
   SchemeNav,
-  SchemeNavResponse,
+  MasterDataResponse,
   SchemeRapm,
   security_master_schema,
   security_prices_schema,
   SecurityMaster,
   SecurityPrices,
+  page_details_schema,
 } from '../../schemas';
 
 export class MarketDataController {
@@ -27,8 +28,7 @@ export class MarketDataController {
   getSchemeNav = async (request: FastifyRequest, reply: FastifyReply): Promise<void> => {
     const { timeStamp, pageNumber, limit } = request.query as { timeStamp: Date; pageNumber: number; limit: number };
     const data: IResult<SchemeNav> = await this.marketDataService.getSchemeNav(timeStamp, pageNumber, limit);
-
-    const schemeNavResponse: SchemeNavResponse = {
+    const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
       previous: data.recordsets[1][0].PREVIOUS_PAGE,
       current: data.recordsets[1][0].CURRENT_PAGE,
@@ -36,7 +36,9 @@ export class MarketDataController {
       next: {
         page: data.recordsets[1][0].NEXT_PAGE,
         limit: limit,
-        link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
+        link: data.recordsets[1][0].NEXT_PAGE
+          ? `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`
+          : null,
       },
     };
 
@@ -47,7 +49,7 @@ export class MarketDataController {
     const { timeStamp, pageNumber, limit } = request.query as { timeStamp: Date; pageNumber: number; limit: number };
     const data: IResult<SchemaMaster> = await this.marketDataService.getSchemeMaster(timeStamp, pageNumber, limit);
 
-    const schemeNavResponse: SchemeNavResponse = {
+    const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
       // previous: data.recordsets[1][0].PREVIOUS_PAGE,
       // current: data.recordsets[1][0].CURRENT_PAGE,
@@ -65,7 +67,7 @@ export class MarketDataController {
     const { timeStamp, pageNumber, limit } = request.query as { timeStamp: Date; pageNumber: number; limit: number };
     const data: IResult<SecurityPrices> = await this.marketDataService.getSecurityPrices(timeStamp, pageNumber, limit);
 
-    const schemeNavResponse: SchemeNavResponse = {
+    const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
       // previous: data.recordsets[1][0].PREVIOUS_PAGE,
       // current: data.recordsets[1][0].CURRENT_PAGE,
@@ -83,7 +85,7 @@ export class MarketDataController {
     const { timeStamp, pageNumber, limit } = request.query as { timeStamp: Date; pageNumber: number; limit: number };
     const data: IResult<SecurityMaster> = await this.marketDataService.getSecurityMaster(timeStamp, pageNumber, limit);
 
-    const schemeNavResponse: SchemeNavResponse = {
+    const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
       // previous: data.recordsets[1][0].PREVIOUS_PAGE,
       // current: data.recordsets[1][0].CURRENT_PAGE,
@@ -101,7 +103,7 @@ export class MarketDataController {
     const { timeStamp, pageNumber, limit } = request.query as { timeStamp: Date; pageNumber: number; limit: number };
     const data: IResult<SchemeRapm> = await this.marketDataService.getSchemeRapm(timeStamp, pageNumber, limit);
 
-    const schemeNavResponse: SchemeNavResponse = {
+    const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
       // previous: data.recordsets[1][0].PREVIOUS_PAGE,
       // current: data.recordsets[1][0].CURRENT_PAGE,
@@ -123,7 +125,7 @@ export class MarketDataController {
       limit,
     );
 
-    const schemeNavResponse: SchemeNavResponse = {
+    const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
       // previous: data.recordsets[1][0].PREVIOUS_PAGE,
       // current: data.recordsets[1][0].CURRENT_PAGE,
@@ -148,15 +150,7 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
         description: 'This Endpoint is used to fetch the schemes nav details',
         tags: ['market-data'],
         summary: 'Fetch scheme nav',
-        querystring: {
-          type: 'object',
-          properties: {
-            timeStamp: { type: 'string', format: 'date-time' },
-            limit: { type: 'number' },
-            pageNumber: { type: 'number' },
-          },
-          required: ['timeStamp', 'limit', 'pageNumber'],
-        },
+        querystring: market_data_query_string,
         response: {
           200: {
             type: 'object',
@@ -180,17 +174,7 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
                   },
                 },
               },
-              current: { type: 'number' },
-              previous: { type: 'number', nullable: true },
-              totalPages: { type: 'number', nullable: true },
-              next: {
-                type: 'object',
-                properties: {
-                  page: { type: 'number' },
-                  limit: { type: 'number' },
-                  link: { type: 'string' },
-                },
-              },
+              ...page_details_schema,
             },
           },
         },
