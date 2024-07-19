@@ -254,7 +254,14 @@ export interface CorporateAction extends PageInfo {
 // };
 
 export type MasterDataResponse = {
-  result: SchemeNav[] | CorporateAction[] | SecurityPrices[] | SchemeRapm[] | SchemaMaster[] | SecurityMaster[];
+  result:
+    | SchemeNav[]
+    | CorporateAction[]
+    | SecurityPrices[]
+    | SchemeRapm[]
+    | SchemaMaster[]
+    | HoldingsWF[]
+    | SecurityMaster[];
   previous?: number | null;
   current?: number | null;
   totalPages?: number | null;
