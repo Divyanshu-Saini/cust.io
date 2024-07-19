@@ -115,7 +115,7 @@ export class MarketDataService {
     }
   }
 
-  async getHoldingsWF(timesStamp: Date, pageNumber: number, limit: number): Promise<IResult<SchemeNav>> {
+  async getHoldingsWF(timesStamp: Date, pageNumber: number, limit: number): Promise<IResult<HoldingsWF>> {
     try {
       console.log(timesStamp, pageNumber, limit);
       await this.fastify.fundoo.pool.connect();
