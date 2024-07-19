@@ -16,6 +16,7 @@ import {
   SecurityMaster,
   SecurityPrices,
   page_details_schema,
+  HoldingsWF,
 } from '../../schemas';
 
 export class MarketDataController {
@@ -141,7 +142,7 @@ export class MarketDataController {
 
   getHoldings = async (request: FastifyRequest, reply: FastifyReply): Promise<void> => {
     const { timeStamp, pageNumber, limit } = request.query as { timeStamp: Date; pageNumber: number; limit: number };
-    const data: IResult<SchemeNav> = await this.marketDataService.getHoldingsWf(timeStamp, pageNumber, limit);
+    const data: IResult<HoldingsWF> = await this.marketDataService.getHoldingsWF(timeStamp, pageNumber, limit);
     const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
       previous: data.recordsets[1][0].PREVIOUS_PAGE,
