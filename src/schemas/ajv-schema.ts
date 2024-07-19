@@ -228,7 +228,6 @@ export const corporate_action_schema = {
   },
 };
 
-
 export const holdings_wf = {
   type: 'array',
   items: {

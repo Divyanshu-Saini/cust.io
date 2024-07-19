@@ -101,7 +101,6 @@ export interface HoldingsWF extends PageInfo {
   SECURITIES: string;
 }
 
-
 export interface SecurityMaster extends PageInfo {
   CompanyCode: number;
   SecurityTypeCode: number;

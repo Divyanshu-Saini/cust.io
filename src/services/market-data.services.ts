@@ -1,5 +1,13 @@
 import { FastifyInstance } from 'fastify';
-import { CorporateAction, SchemaMaster, SchemeNav, SchemeRapm, SecurityMaster, SecurityPrices, HoldingsWF } from '../schemas';
+import {
+  CorporateAction,
+  SchemaMaster,
+  SchemeNav,
+  SchemeRapm,
+  SecurityMaster,
+  SecurityPrices,
+  HoldingsWF,
+} from '../schemas';
 import { IResult } from 'mssql';
 // import { MSSQLFastifyInterface } from 'fastify-mssql';
 
@@ -122,5 +130,4 @@ export class MarketDataService {
       throw error;
     }
   }
-
 }
