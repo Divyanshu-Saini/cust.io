@@ -39,8 +39,8 @@ RUN rm -rf src
 # Expose the port the app runs on.
 EXPOSE 3000
 
-# Run the web service on container startup.
-CMD [ "npm", "start" ]
-
 # Optionally, add a health check to ensure the container is running correctly.
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 CMD curl -f http://localhost:3000/api/v1/ping || exit 1
+
+# Run the web service on container startup.
+CMD [ "npm", "start" ]
