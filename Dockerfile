@@ -34,7 +34,7 @@ RUN apk update && apk upgrade && apk add vim bash curl
 
 RUN npm run build
 
-RUN rm -rf src
+# RUN rm -rf src
 
 # Expose the port the app runs on.
 EXPOSE 3000
