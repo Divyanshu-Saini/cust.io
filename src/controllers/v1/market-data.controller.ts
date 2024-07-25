@@ -52,13 +52,13 @@ export class MarketDataController {
 
     const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
-      // previous: data.recordsets[1][0].PREVIOUS_PAGE,
-      // current: data.recordsets[1][0].CURRENT_PAGE,
-      // next: {
-      //   page: data.recordsets[1][0].NEXT_PAGE,
-      //   limit: limit,
-      //   link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
-      // },
+      previous: data.recordsets[1][0].PREVIOUS_PAGE,
+      current: data.recordsets[1][0].CURRENT_PAGE,
+      next: {
+        page: data.recordsets[1][0].NEXT_PAGE,
+        limit: limit,
+        link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
+      },
     };
 
     reply.status(200).send(schemeNavResponse);
@@ -70,13 +70,13 @@ export class MarketDataController {
 
     const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
-      // previous: data.recordsets[1][0].PREVIOUS_PAGE,
-      // current: data.recordsets[1][0].CURRENT_PAGE,
-      // next: {
-      //   page: data.recordsets[1][0].NEXT_PAGE,
-      //   limit: limit,
-      //   link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
-      // },
+      previous: data.recordsets[1][0].PREVIOUS_PAGE,
+      current: data.recordsets[1][0].CURRENT_PAGE,
+      next: {
+        page: data.recordsets[1][0].NEXT_PAGE,
+        limit: limit,
+        link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
+      },
     };
 
     reply.status(200).send(schemeNavResponse);
@@ -88,13 +88,13 @@ export class MarketDataController {
 
     const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
-      // previous: data.recordsets[1][0].PREVIOUS_PAGE,
-      // current: data.recordsets[1][0].CURRENT_PAGE,
-      // next: {
-      //   page: data.recordsets[1][0].NEXT_PAGE,
-      //   limit: limit,
-      //   link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
-      // },
+      previous: data.recordsets[1][0].PREVIOUS_PAGE,
+      current: data.recordsets[1][0].CURRENT_PAGE,
+      next: {
+        page: data.recordsets[1][0].NEXT_PAGE,
+        limit: limit,
+        link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
+      },
     };
 
     reply.status(200).send(schemeNavResponse);
@@ -106,13 +106,13 @@ export class MarketDataController {
 
     const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
-      // previous: data.recordsets[1][0].PREVIOUS_PAGE,
-      // current: data.recordsets[1][0].CURRENT_PAGE,
-      // next: {
-      //   page: data.recordsets[1][0].NEXT_PAGE,
-      //   limit: limit,
-      //   link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
-      // },
+      previous: data.recordsets[1][0].PREVIOUS_PAGE,
+      current: data.recordsets[1][0].CURRENT_PAGE,
+      next: {
+        page: data.recordsets[1][0].NEXT_PAGE,
+        limit: limit,
+        link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
+      },
     };
 
     reply.status(200).send(schemeNavResponse);
@@ -128,13 +128,13 @@ export class MarketDataController {
 
     const schemeNavResponse: MasterDataResponse = {
       result: data.recordset,
-      // previous: data.recordsets[1][0].PREVIOUS_PAGE,
-      // current: data.recordsets[1][0].CURRENT_PAGE,
-      // next: {
-      //   page: data.recordsets[1][0].NEXT_PAGE,
-      //   limit: limit,
-      //   link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
-      // },
+      previous: data.recordsets[1][0].PREVIOUS_PAGE,
+      current: data.recordsets[1][0].CURRENT_PAGE,
+      next: {
+        page: data.recordsets[1][0].NEXT_PAGE,
+        limit: limit,
+        link: `${request.protocol}:/${request.hostname}${request.routeOptions.url}?timeStamp=${timeStamp}&limit=${limit}&pageNumber=${data.recordsets[1][0].NEXT_PAGE}`,
+      },
     };
 
     reply.status(200).send(schemeNavResponse);

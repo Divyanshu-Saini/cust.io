@@ -39,9 +39,9 @@ export class MarketDataService {
       console.log(timesStamp, pageNumber, limit);
       await this.fastify.fundoo.pool.connect();
       const result: IResult<SchemaMaster> = await this.fastify.fundoo.pool.query(`EXEC dbo.API_GET_Scheme_Master
-              @Modified_Date = '${timesStamp}'--, 
-              -- @page_no = ${pageNumber},                
-              -- @page_size = ${limit}
+              @Modified_Date = '${timesStamp}', 
+              @page_no = ${pageNumber},                
+              @page_size = ${limit}
           `);
       return result;
     } catch (error) {
@@ -55,9 +55,9 @@ export class MarketDataService {
       console.log(timesStamp, pageNumber, limit);
       await this.fastify.vfCc.pool.connect();
       const result: IResult<SecurityPrices> = await this.fastify.vfCc.pool.query(`EXEC dbo.API_GET_SecurityPrice
-              @Modified_Date = '${timesStamp}' --, 
-              -- @page_no = ${pageNumber},                
-              -- @page_size = ${limit}
+              @Modified_Date = '${timesStamp}', 
+              @page_no = ${pageNumber},                
+              @page_size = ${limit}
           `);
       return result;
     } catch (error) {
@@ -71,9 +71,9 @@ export class MarketDataService {
       console.log(timesStamp, pageNumber, limit);
       await this.fastify.vfCc.pool.connect();
       const result: IResult<SecurityMaster> = await this.fastify.vfCc.pool.query(`EXEC dbo.API_GET_SecurityMaster
-              @Modified_Date = '${timesStamp}' --, 
-              -- @page_no = ${pageNumber},                
-              -- @page_size = ${limit}
+              @Modified_Date = '${timesStamp}', 
+              @page_no = ${pageNumber},                
+              @page_size = ${limit}
           `);
       return result;
     } catch (error) {
@@ -87,9 +87,9 @@ export class MarketDataService {
       console.log(timesStamp, pageNumber, limit);
       await this.fastify.fundoo.pool.connect();
       const result: IResult<SchemeRapm> = await this.fastify.fundoo.pool.query(`EXEC dbo.API_GET_Scheme_RAPM
-              @Modified_Date = '${timesStamp}' --, 
-             -- @page_no = ${pageNumber},                
-             -- @page_size = ${limit}
+              @Modified_Date = '${timesStamp}', 
+              @page_no = ${pageNumber},                
+              @page_size = ${limit}
           `);
       return result;
     } catch (error) {
@@ -103,9 +103,9 @@ export class MarketDataService {
       console.log(timesStamp, pageNumber, limit);
       await this.fastify.vfCc.pool.connect();
       const result: IResult<CorporateAction> = await this.fastify.vfCc.pool.query(`EXEC dbo.API_GET_CorporateActions
-              @Modified_Date = '${timesStamp}' --, 
-              -- @page_no = ${pageNumber},                
-              -- @page_size = ${limit}
+              @Modified_Date = '${timesStamp}', 
+              @page_no = ${pageNumber},                
+              @page_size = ${limit}
           `);
       console.log('res-- ', result);
       return result;
