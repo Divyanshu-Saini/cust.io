@@ -17,6 +17,7 @@ import {
   SecurityPrices,
   page_details_schema,
   HoldingsWF,
+  holdings_wf,
 } from '../../schemas';
 
 export class MarketDataController {
@@ -222,16 +223,7 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
             type: 'object',
             properties: {
               result: scheme_master_schema,
-              current: { type: 'number' },
-              previous: { type: 'number', nullable: true },
-              next: {
-                type: 'object',
-                properties: {
-                  page: { type: 'number' },
-                  limit: { type: 'number' },
-                  link: { type: 'string' },
-                },
-              },
+              ...page_details_schema,
             },
           },
         },
@@ -253,16 +245,7 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
             type: 'object',
             properties: {
               result: security_prices_schema,
-              current: { type: 'number' },
-              previous: { type: 'number', nullable: true },
-              next: {
-                type: 'object',
-                properties: {
-                  page: { type: 'number' },
-                  limit: { type: 'number' },
-                  link: { type: 'string' },
-                },
-              },
+              ...page_details_schema,
             },
           },
         },
@@ -284,16 +267,7 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
             type: 'object',
             properties: {
               result: security_master_schema,
-              current: { type: 'number' },
-              previous: { type: 'number', nullable: true },
-              next: {
-                type: 'object',
-                properties: {
-                  page: { type: 'number' },
-                  limit: { type: 'number' },
-                  link: { type: 'string' },
-                },
-              },
+              ...page_details_schema,
             },
           },
         },
@@ -315,16 +289,7 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
             type: 'object',
             properties: {
               result: scheme_rapm_schema,
-              current: { type: 'number' },
-              previous: { type: 'number', nullable: true },
-              next: {
-                type: 'object',
-                properties: {
-                  page: { type: 'number' },
-                  limit: { type: 'number' },
-                  link: { type: 'string' },
-                },
-              },
+              ...page_details_schema,
             },
           },
         },
@@ -346,16 +311,7 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
             type: 'object',
             properties: {
               result: corporate_action_schema,
-              current: { type: 'number' },
-              previous: { type: 'number', nullable: true },
-              next: {
-                type: 'object',
-                properties: {
-                  page: { type: 'number' },
-                  limit: { type: 'number' },
-                  link: { type: 'string' },
-                },
-              },
+              ...page_details_schema,
             },
           },
         },
@@ -376,17 +332,8 @@ const MarketDataPlugin: FastifyPluginAsync = async (fastify: FastifyInstance): P
           200: {
             type: 'object',
             properties: {
-              result: scheme_master_schema, //to be replaced with holdings schema
-              current: { type: 'number' },
-              previous: { type: 'number', nullable: true },
-              next: {
-                type: 'object',
-                properties: {
-                  page: { type: 'number' },
-                  limit: { type: 'number' },
-                  link: { type: 'string' },
-                },
-              },
+              result: holdings_wf,
+              ...page_details_schema,
             },
           },
         },

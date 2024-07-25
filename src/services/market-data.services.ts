@@ -120,7 +120,7 @@ export class MarketDataService {
       console.log(timesStamp, pageNumber, limit);
       await this.fastify.fundoo.pool.connect();
       const result: IResult<HoldingsWF> = await this.fastify.fundoo.pool.query(`EXEC dbo.API_GET_Holdings_WF
-              @NAV_DATE = '${timesStamp}', 
+              @Modified_Date = '${timesStamp}', 
               @page_no = ${pageNumber},                
               @page_size = ${limit}
           `);
