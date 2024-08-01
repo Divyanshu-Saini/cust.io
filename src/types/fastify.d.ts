@@ -1,5 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { MSSQLFastifyInterface } from 'fastify-mssql';
+import { Server, Socket } from 'socket.io';
 declare module 'fastify' {
   interface FastifyInstance {
     config: {
@@ -15,5 +16,12 @@ declare module 'fastify' {
     };
     vfCc: MSSQLFastifyInterface;
     fundoo: MSSQLFastifyInterface;
+    io: Server;
+  }
+}
+
+declare module 'socket.io' {
+  interface Socket {
+    user?: VerifyPayloadType;
   }
 }
