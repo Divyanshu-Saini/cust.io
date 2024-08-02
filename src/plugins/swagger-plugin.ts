@@ -19,17 +19,10 @@ export default fp<SwaggerOptions>(async (fastify: FastifyInstance) => {
       servers: [
         {
           url: `http://localhost:${process.env.PORT || 3000}`,
-          description: 'Development server for new age fundoo',
-        },
-        {
-          url: `https://marketdata.wealthfy.com`,
-          description: 'Production server for new age fundoo',
+          description: 'Development server for cust.io',
         },
       ],
-      tags: [
-        { name: 'ping', description: 'Server health check' },
-        { name: 'market-data', description: 'Market data endpoint' },
-      ],
+      tags: [{ name: 'ping', description: 'Server health check' }],
       components: {
         securitySchemes: {
           apiKey: {
