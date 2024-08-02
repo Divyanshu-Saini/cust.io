@@ -31,7 +31,6 @@
     "@types/mongoose": "^5.11.97",
     "fastify": "^4.28.1",
     "fastify-bcrypt": "^1.0.1",
-    "fastify-mssql": "https://github.com/Divyanshu-Saini/fastify-mssql",
     "fastify-plugin": "^4.5.1",
     "fastify-socket.io": "^5.0.0",
     "mongoose": "^8.5.2",
