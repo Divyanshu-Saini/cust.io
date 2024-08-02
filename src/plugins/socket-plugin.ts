@@ -13,6 +13,7 @@ export default fp(async (fastify: FastifyInstance) => {
 
       if (token) {
         const decoded = fastify.jwt.verify(token);
+        console.log(decoded);
         if (decoded) {
           socket.user = decoded;
           next();
