@@ -13,6 +13,9 @@ declare module 'fastify' {
       MIN_POOL_SIZE: string;
       DB_FUNDOO: string;
       DB_VF_CC: string;
+      MONGO_USER: string;
+      MONGO_PWD: string;
+      MONGO_DB: string;
     };
     vfCc: MSSQLFastifyInterface;
     fundoo: MSSQLFastifyInterface;
