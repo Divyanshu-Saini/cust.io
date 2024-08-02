@@ -1,0 +1,13 @@
+
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "cSpell.words": [
+    "fastify",
+    "fundoo"
+  ],
+  "prettier.printWidth": 120,
+  "prettier.trailingComma": "all"
+}
+
