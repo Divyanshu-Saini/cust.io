@@ -1,4 +1,4 @@
-import fastify, { FastifyPluginAsync, FastifyReply, FastifyRequest, FastifyInstance } from 'fastify';
+import { FastifyPluginAsync, FastifyReply, FastifyRequest, FastifyInstance } from 'fastify';
 import User, { IUser } from '../../schemas/user-schema';
 
 export class UserOnboardingController {
